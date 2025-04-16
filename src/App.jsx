@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="bg-gray-900 text-white font-sans">
+    <div className="bg-gray-900 dark:bg-gray-800 text-white dark:text-gray-300 font-sans">
       <Navbar />
       <motion.div
         initial={{ opacity: 0 }}
