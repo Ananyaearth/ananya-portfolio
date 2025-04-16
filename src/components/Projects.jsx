@@ -39,49 +39,49 @@ function Projects() {
   const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
   return (
-  <section id="projects" className="py-16 bg-white dark:bg-gray-800">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-4xl font-bold text-blue-500 dark:text-blue-400 mb-8">Projects</h2>
-      <div className="flex space-x-4 mb-8">
-        {categories.map(category => (
-          <button
-            key={category}
-            onClick={() => setFilter(category)}
-            className={`px-4 py-2 rounded-full ${
-              filter === category ? 'bg-blue-500 text-white' : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredProjects.map((project, index) => (
-          <motion.div
-            key={index}
-            className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-blue-200 dark:hover:shadow-blue-500/50 transition"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-          >
-            <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-300 mb-2">{project.title}</h3>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">{project.description}</p>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
-              <strong>Tech:</strong> {project.tech.join(', ')}
-            </p>
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 dark:text-blue-400 hover:underline"
+    <section id="projects" className="py-16 bg-gray-900 dark:bg-gray-800 text-white dark:text-gray-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-fuchsia-500 dark:text-fuchsia-400 mb-8">Projects</h2>
+        <div className="flex space-x-4 mb-8">
+          {categories.map(category => (
+            <button
+              key={category}
+              onClick={() => setFilter(category)}
+              className={`px-4 py-2 rounded-full ${
+                filter === category ? 'bg-fuchsia-500 text-white' : 'bg-gray-700 dark:bg-gray-600 text-gray-300 dark:text-gray-400'
+              }`}
             >
-              View Project
-            </a>
-          </motion.div>
-        ))}
+              {category}
+            </button>
+          ))}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {filteredProjects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="bg-gray-900 dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-fuchsia-500/50 dark:hover:shadow-fuchsia-500/50 transition"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+            >
+              <h3 className="text-xl font-semibold text-fuchsia-500 dark:text-fuchsia-400 mb-2">{project.title}</h3>
+              <p className="text-gray-300 dark:text-gray-400 mb-4">{project.description}</p>
+              <p className="text-gray-400 dark:text-gray-500 mb-4">
+                <strong>Tech:</strong> {project.tech.join(', ')}
+              </p>
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-fuchsia-500 dark:text-fuchsia-400 hover:underline"
+              >
+                View Project
+              </a>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }
 
